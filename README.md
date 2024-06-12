@@ -150,12 +150,8 @@ Here is the first few rows of our cleaned dataframe.
 
 ## Univariate Analysis
 
-<details>
 
-<summary> Climate Cateegories </summary>
-
-### Any peculiarites about the frequency of power outages by climate categories? 
-
+#### Any peculiarites about the frequency of power outages by climate categories? 
 <iframe
   src="assets/univariate-plot-1.html"
   width="800"
@@ -163,8 +159,6 @@ Here is the first few rows of our cleaned dataframe.
   frameborder="0"
 ></iframe>
 It was important for us to first recognize the distributions of climate categories in a pie chart as it shows us what type of climate the majority of power outages occur in.
-
-</details>
 
 #### Any peculiarities about the frequency of power outages by month?
 <iframe
@@ -197,6 +191,8 @@ Similar to what the previous graph showed with Commercial Zones, there is somewh
 
 
 #### Grouping and Aggregates 
+
+#### Are there any discoverable relationships in looking at changes in frequency of the cause categories throughout 2000-2016?
 sam why did you choose to do the pivot table this way and what does it show us
 
 | CAUSE.CATEGORY                |        2000-2003 |       2005-2008 |        2009-2012 |        2013-2016 |
