@@ -40,14 +40,101 @@ Power outages pose significant risks to the safety, economy, and daily life of U
 3. Next, we filled in missing values from the columns with NAN
 Here is the first few rows of our cleaned dataframe. 
 
-|    |   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START        | OUTAGE.RESTORATION   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   POPULATION |
-|---:|-------:|--------:|:-------------|:-------------------|:-------------------|:--------------------|:---------------------|:-------------------|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|-------------:|
-|  0 |   2011 |       7 | Minnesota    | East North Central | normal             | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  | severe weather     |              3060 |              nan |                70000 |     2332915 |     2114774 |     2113291 |       6562520 |      5348119 |
-|  1 |   2014 |       5 | Minnesota    | East North Central | normal             | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  | intentional attack |                 1 |              nan |                  nan |     1586986 |     1807756 |     1887927 |       5284231 |      5457125 |
-|  2 |   2010 |      10 | Minnesota    | East North Central | cold               | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  | severe weather     |              3000 |              nan |                70000 |     1467293 |     1801683 |     1951295 |       5222116 |      5310903 |
-|  3 |   2012 |       6 | Minnesota    | East North Central | normal             | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  | severe weather     |              2550 |              nan |                68200 |     1851519 |     1941174 |     1993026 |       5787064 |      5380443 |
-|  4 |   2015 |       7 | Minnesota    | East North Central | warm               | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  | severe weather     |              1740 |              250 |               250000 |     2028875 |     2161612 |     1777937 |       5970339 |      5489594 |
-
+<div style="max-height: 400px; overflow-y: scroll;">
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right;">
+        <th>YEAR</th>
+        <th>MONTH</th>
+        <th>U.S._STATE</th>
+        <th>CLIMATE.REGION</th>
+        <th>CLIMATE.CATEGORY</th>
+        <th>OUTAGE.START</th>
+        <th>OUTAGE.RESTORATION</th>
+        <th>CAUSE.CATEGORY</th>
+        <th>OUTAGE.DURATION</th>
+        <th>DEMAND.LOSS.MW</th>
+        <th>CUSTOMERS.AFFECTED</th>
+        <th>RES.SALES</th>
+        <th>COM.SALES</th>
+        <th>IND.SALES</th>
+        <th>TOTAL.SALES</th>
+        <th>POPULATION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2011</td>
+        <td>7</td>
+        <td>Minnesota</td>
+        <td>East North Central</td>
+        <td>normal</td>
+        <td>2011-07-01 17:00:00</td>
+        <td>2011-07-03 20:00:00</td>
+        <td>severe weather</td>
+        <td>3060</td>
+        <td>nan</td>
+        <td>70000</td>
+        <td>2332915</td>
+        <td>2114774</td>
+        <td>2113291</td>
+        <td>6562520</td>
+        <td>5348119</td>
+      </tr>
+      <tr>
+        <td>2014</td>
+        <td>5</td>
+        <td>Minnesota</td>
+        <td>East North Central</td>
+        <td>normal</td>
+        <td>2014-05-11 18:38:00</td>
+        <td>2014-05-11 18:39:00</td>
+        <td>intentional attack</td>
+        <td>1</td>
+        <td>nan</td>
+        <td>nan</td>
+        <td>1586986</td>
+        <td>1807756</td>
+        <td>1887927</td>
+        <td>5284231</td>
+        <td>5457125</td>
+      </tr>
+      <tr>
+        <td>2010</td>
+        <td>10</td>
+        <td>Minnesota</td>
+        <td>East North Central</td>
+        <td>cold</td>
+        <td>2010-10-26 20:00:00</td>
+        <td>2010-10-28 22:00:00</td>
+        <td>severe weather</td>
+        <td>3000</td>
+        <td>nan</td>
+        <td>70000</td>
+        <td>1467293</td>
+        <td>1801683</td>
+        <td>1951295</td>
+        <td>5222116</td>
+        <td>5310903</td>
+      </tr>
+      <tr>
+        <td>2012</td>
+        <td>6</td>
+        <td>Minnesota</td>
+        <td>East North Central</td>
+        <td>normal</td>
+        <td>2012-06-19 04:30:00</td>
+        <td>2012-06-20 23:00:00</td>
+        <td>severe weather</td>
+        <td>2550</td>
+        <td>nan</td>
+        <td>68200</td>
+        <td>1851519</td>
+        <td>1941174</td>
+        <td>1993026</td>
+        <td>5787064</td>
+        <td>5380443</td>
+        
 ## Univariate Analysis 
 We will begin by visualizing power outages by single variables.
 
