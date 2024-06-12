@@ -154,3 +154,43 @@ Secondly, we evaluated the distribution of `MONTH` when `DEMAND.LOSS.MW` is miss
 ></iframe>
 
 We analyze an observed Total Variation Distance (TVD) of 0.103, with a p-value of 0.026 (alpha 0.01).  At this value, we fail to reject the null hypothesis in favor of the alternative. The distribution of MONTH is not significantly different when `DEMAND.LOSS.MW`  is missing or not missing, indicating that the missingness of `DEMAND.LOSS.MW` is not dependent on Month.
+
+# Hypothesis Testing 
+
+### We will be testing whether the power outage durations are higher on average for industrial areas over commercial areas, since industrial areas may have higher energy consumption than commercial areas; therefore,  the relevant columns for testing this hypothesis are  OUTAGE.DURATION and COM.SALES, IND.SALES, AND TOTAL.SALES
+
+**Null Hypothesis (H₀)**: On average, power outage durations are the same for industrial and commercial areas, they are the same regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.
+**Alternative Hypothesis (H₁) **: On average, power outage durations are higher for industrial areas than commercial areas because industrial energy consumption is higher than commercial energy consumption.
+
+**Test Statistic**: Difference in means. 
+The mean power outage duration for a commercial area- mean power outage duration of an industrial area.
+
+### Although we are only analyzing the mean differences of duration of power outages for only 2 of these 3 living sectors, we went about an approach that could better encompass the proportion of these sectors in terms of the total sales. To do so we followed this process:
+
+1. Calculated the proportion of sales (energy consumption) for each living sector in terms of total sales. 
+2. Found which living sector had the max proportion of sales for that row. If the max was RES (meaning the residential living sector primarily had the most energy consumption for that outage), then we proceeded to drop that row, since we only wanted our focus to be on the commercial and industrial sectors.
+3. Since the commercial and industrial sectors had very similar energy consumptions, their differences in outage duration were also close together. We classified a threshold (the median of the distribution of differences) to decide whether that outage was COM or IND. The median we used for threshold was 8.08 
+4. Calculated observed differences and performed permutation testing.
+
+###  We then performed a permutation test with 10,000 simulations in order to develop an empirical distribution of the test statistic under the null hypothesis. We obtained a p-value of 0.273, with an alpha of 0.05. We failed to reject the null hypothesis, concluding that ** on average, the duration of power outages is the same for industrial and commercial areas, regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.** 
+
+<iframe
+  src="assets/hypothesis-testing-graphing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+# Framing a Prediction Problem
+
+### Our model will try to **predict the number of customers affected by a major power outage**, which is a regression problem. 
+
+The response variable we are predicting is `CUSTOMERS.AFFECTED`, we chose this because this column captures the number of customers in total that are affected by a certain outage. The metric we are using to evaluate our model is R^2, we chose this metric because it is a simplistic, yet efficient way to measure goodness of fit of our model and how well the model's predictions match the actual data. We chose this metric over other metrics because R^2 can be especially helpful in model selection and validation, as well as be used for easy comparison with a baseline model to see how much improvement a more complex model provides.
+
+At the time of prediction, we would know the features: `MONTH`, `YEAR` `TOTAL.CUSTOMERS`, `OUTAGE.START`, `U.S._STATE`, `POPULATION`, `CLIMATE.CATEGORY`, `CAUSE.CATEGORY’, ‘NERC.REGION`, `UTIL.CONTRI`, `TOTAL.SALES`. Understanding these features information will aid us in predicting the number of customers affected by a major power outage.  
+
+# Baseline Model 
+
+# Final Model 
+
+# Fairness Analysis 
