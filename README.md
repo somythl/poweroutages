@@ -44,3 +44,4 @@ Authors: **Samuel Mahjouri and Zoya Hasan**
 3. Next, we filled in missing values from the columns with NAN
 
 Here is the first few rows of our cleaned dataframe. 
+
