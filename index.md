@@ -2,6 +2,8 @@
 layout: default
 ---
 
+Authors: **Samuel Mahjouri and Zoya Hasan**
+
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
