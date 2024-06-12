@@ -11,7 +11,7 @@ Power outages pose significant risks to the safety, economy, and daily life of U
 |:-------------|:------------------|
 | `YEAR`       | the year when the outage event occurred
  | 
-| out of stock | good and plenty   | 
+| `YEAR` | the month when the outage event occurred
 | ok           | good     | 
 | ok           | good `zoute` drop |
 
