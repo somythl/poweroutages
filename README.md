@@ -134,7 +134,10 @@ Here is the first few rows of our cleaned dataframe.
         <td>1993026</td>
         <td>5787064</td>
         <td>5380443</td>
-        
+      </tr>
+    </tbody>
+  </table>
+</div>
 ## Univariate Analysis 
 We will begin by visualizing power outages by single variables.
 
