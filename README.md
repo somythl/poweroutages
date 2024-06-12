@@ -35,13 +35,18 @@ Authors: **Samuel Mahjouri and Zoya Hasan**
 | `NERC.REGION`| North American Electric Reliability Corporation (NERC) regions involved in the outage event|
 | `CAUSE.CATEGORY`| Event causing the power outage|
 
-# H1
 # Data Cleaning and Exploratory Data Analysis 
 
-# H2
 ## Here we outline the steps taken to clean our dataset so it is effective for analysis 
 1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features.We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`]]
 2. Then, we combined the `OUTAGE.START.DATE` and `OUTAGE.START.TIME` columns into a singular `OUTAGE.START` column that utilizes the Timestamp object. We followed the same for `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME`, to get the comprehensive ending time for the outage (when the outage was restored). we then dropped the old columns since all the relevant timing was captured in `OUTAGE.STARTv and `OUTAGE.RESTORATION`
 3. Next, we filled in missing values from the columns with NAN
 Here is the first few rows of our cleaned dataframe. 
 
+|    |   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START        | OUTAGE.RESTORATION   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   POPULATION |
+|---:|-------:|--------:|:-------------|:-------------------|:-------------------|:--------------------|:---------------------|:-------------------|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|-------------:|
+|  0 |   2011 |       7 | Minnesota    | East North Central | normal             | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  | severe weather     |              3060 |              nan |                70000 |     2332915 |     2114774 |     2113291 |       6562520 |      5348119 |
+|  1 |   2014 |       5 | Minnesota    | East North Central | normal             | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  | intentional attack |                 1 |              nan |                  nan |     1586986 |     1807756 |     1887927 |       5284231 |      5457125 |
+|  2 |   2010 |      10 | Minnesota    | East North Central | cold               | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  | severe weather     |              3000 |              nan |                70000 |     1467293 |     1801683 |     1951295 |       5222116 |      5310903 |
+|  3 |   2012 |       6 | Minnesota    | East North Central | normal             | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  | severe weather     |              2550 |              nan |                68200 |     1851519 |     1941174 |     1993026 |       5787064 |      5380443 |
+|  4 |   2015 |       7 | Minnesota    | East North Central | warm               | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  | severe weather     |              1740 |              250 |               250000 |     2028875 |     2161612 |     1777937 |       5970339 |      5489594 |
