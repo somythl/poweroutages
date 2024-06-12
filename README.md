@@ -36,12 +36,9 @@ Authors: **Samuel Mahjouri and Zoya Hasan**
 | `CAUSE.CATEGORY`| Event causing the power outage|
 
 # Data Cleaning and Exploratory Data Analysis 
-
 ## Here we outline the steps taken to clean our dataset so it is effective for analysis 
-
 1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features.We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`]]
 2. Then, we combined the `OUTAGE.START.DATE` and `OUTAGE.START.TIME` columns into a singular `OUTAGE.START` column that utilizes the Timestamp object. We followed the same for `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME`, to get the comprehensive ending time for the outage (when the outage was restored). we then dropped the old columns since all the relevant timing was captured in `OUTAGE.STARTv and `OUTAGE.RESTORATION`
 3. Next, we filled in missing values from the columns with NAN
-
 Here is the first few rows of our cleaned dataframe. 
 
