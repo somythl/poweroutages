@@ -1,5 +1,5 @@
-remote_theme: pages-themes/slate@v0.2.0
-title: Power Outages: Zoning Analysis and Predictive Model in Measuring Customers Affected
+title: test_title
+description: test_desc
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-slate
