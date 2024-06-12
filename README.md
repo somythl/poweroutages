@@ -148,10 +148,14 @@ Here is the first few rows of our cleaned dataframe.
 </div>
 
 
+## Univariate Analysis
 
-## Univariate Analysis 
+<details>
 
-#### Any peculiarites about the frequency of power outages by climate categories? 
+<summary> Climate Cateegories </summary>
+
+### Any peculiarites about the frequency of power outages by climate categories? 
+
 <iframe
   src="assets/univariate-plot-1.html"
   width="800"
@@ -159,6 +163,8 @@ Here is the first few rows of our cleaned dataframe.
   frameborder="0"
 ></iframe>
 It was important for us to first recognize the distributions of climate categories in a pie chart as it shows us what type of climate the majority of power outages occur in.
+
+</details>
 
 #### Any peculiarities about the frequency of power outages by month?
 <iframe
