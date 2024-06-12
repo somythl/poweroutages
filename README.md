@@ -1,11 +1,14 @@
 # Zoning Analysis and Predictive Modeling of Customers Affected in a Power Outage
 
+
 ### Created by Samuel Mahjouri and Zoya Hasan
+
 
 ## Introduction
 
-Power outages pose significant risks to the safety, economy, and daily life of U.S. citizens, making it imperative to understand the factors that influence their duration and impact. Our  analysis utilizes a dataset on major power outage events in the continental U.S. from January 2000 to July 2016, provided by Mukherjee, Nateghi, and Hastak from Purdue University. The dataset includes information on geographical location, regional climatic conditions, land-use characteristics, regional electricity consumption patterns, and economic attributes of power outages in various states. Given such a holistic understanding of power outages, we posed the question that could support energy companies when considering where to aid during power outages. Our key question is: **What are the key factors that influence the durations of major power outages in the continental U.S., and how can these insights be used to mitigate future outages?** This question holds practical implications for utility companies, as well as regional communities. By identifying the determinants of outage durations, energy companies  can better prepare for and respond to future incidents. Given the increasing number and high severity of weather-related disruptions, understanding these dynamics, in correlation to power outages, is more critical than ever. The dataset used in this project has 1534 rows and 56 columns, and offers comprehensive insight to uncover our questions through data analysis. The dataset encompasses information on every major power outage in the United States from 2000 to 2016. Only a handful of columns were used for analysis and prediction, as described below:
+Power outages pose significant risks to the safety, economy, and daily life of U.S. citizens, making it imperative to understand the factors that influence their duration and impact. Our  analysis utilizes a dataset on major power outage events in the continental U.S. from January 2000 to July 2016, provided by Mukherjee, Nateghi, and Hastak from Purdue University. The dataset includes information on geographical location, regional climatic conditions, land-use characteristics, regional electricity consumption patterns, and economic attributes of power outages in various states. Given such a holistic understanding of power outages, we posed the question that could support energy companies when considering where to aid during power outages.
 
+Our key question is: **What are the key factors that influence the durations of major power outages in the continental U.S., and how can these insights be used to mitigate future outages?** This question holds practical implications for utility companies, as well as regional communities. By identifying the determinants of outage durations, energy companies  can better prepare for and respond to future incidents. Given the increasing number and high severity of weather-related disruptions, understanding these dynamics, in correlation to power outages, is more critical than ever. The dataset used in this project has 1534 rows and 56 columns, and offers comprehensive insight to uncover our questions through data analysis. The dataset encompasses information on every major power outage in the United States from 2000 to 2016. Only a handful of columns were used for analysis and prediction, as described below:
 
 ***
 
@@ -15,9 +18,9 @@ Power outages pose significant risks to the safety, economy, and daily life of U
 | `MONTH` | The month when the outage occurred |
 | `U.S._STATE` | State the outage occured in| 
 | `OUTAGE.START.DATE`| Day of the year when the outage started |
-| `'OUTAGE.START.TIME'`| Time of the day when the outage started |
+| `OUTAGE.START.TIME`| Time of the day when the outage started |
 | `RESTORATION.START.DATE`| Day of the year when energy was restored for outage|
-| `'RESTORATION.START.TIME'`| Time of the day when energy was restored for outage|
+| `RESTORATION.START.TIME`| Time of the day when energy was restored for outage|
 | `CLMATE.CATEGORY`| Climate episode during outage (Warm/Normal/Cold) |
 | `OUTAGE.DURATION`| Duration of outage (minutes) |
 | `POPULATION`| Duration of outage (minutes) |
@@ -32,12 +35,17 @@ Power outages pose significant risks to the safety, economy, and daily life of U
 | `CAUSE.CATEGORY`| Event causing the power outage|
 
 
+
 # Data Cleaning and Exploratory Data Analysis 
 
 ### Here we outline the steps taken to clean our dataset so it is effective for analysis 
-1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features.We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`]]
+1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features.We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`
+
+  
 2. Then, we combined the `OUTAGE.START.DATE` and `OUTAGE.START.TIME` columns into a singular `OUTAGE.START` column that utilizes the Timestamp object. We followed the same for `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME`, to get the comprehensive ending time for the outage (when the outage was restored). we then dropped the old columns since all the relevant timing was captured in `OUTAGE.START` and `OUTAGE.RESTORATION`
-3. Next, we filled in missing values from the columns with NAN
+
+
+4. Next, we filled in missing values from the columns with NAN
 Here is the first few rows of our cleaned dataframe. 
 
 <div style="max-height: 400px; overflow-y: scroll;">
@@ -139,49 +147,48 @@ Here is the first few rows of our cleaned dataframe.
   </table>
 </div>
 
-## Univariate Analysis 
-We will begin by visualizing power outages by single variables.
 
-#### Here we analyze the distribution of climate categories
-It was important for us to first recognize the distributions of climate categories in a pie chart as it shows us what type of climate the majority of power outages occur in.
+
+## Univariate Analysis 
+
+#### Any peculiarites about the frequency of power outages by climate categories? 
 <iframe
   src="assets/univariate-plot-1.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+It was important for us to first recognize the distributions of climate categories in a pie chart as it shows us what type of climate the majority of power outages occur in.
 
-#### Here we analyze the frequency distribution of outages per month 
-The bar graph illusrates a potential predictor for people affected bt power outages, such as month of year, since we notice there is a high frequency of outages in summer months.
+#### Any peculiarities about the frequency of power outages by month?
 <iframe
   src="assets/univariate-plot-3.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
+The bar graph illusrates a potential predictor for people affected bt power outages, such as month of year, since we notice there is a high frequency of outages in summer months.
 
 ## Bivariate Analysis 
-We now perfomed a bivariate analysis on energy usage and outage duration in 2 different living sectors. 
 
-#### what is this graph sam
-explain the importance and what it shows sam 
+#### Any Possible Correlations between Megawatts/Hour in Commercial Zones and Outage Duration? 
 <iframe
   src="assets/bivariate-plot-1.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+As the data points stray above the x-axis, it seems there is a soft positive trend between Commercial Zone Megawatt Usage and the Duration of Power Outages.
 
-
-#### what is this graph sam
-explain the importance and what it shows sam 
+#### Any Possible Correlations between Megawatts/Hour in Industrial Zones and Outage Duration? 
 <iframe
   src="assets/bivariate-plot-2.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+Similar to what the previous graph showed with Commercial Zones, there is somewhat of a relationship between Industrial Zone Megawatt Usage and the Duration of Power Outages.
+
 
 #### Grouping and Aggregates 
 sam why did you choose to do the pivot table this way and what does it show us
