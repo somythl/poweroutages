@@ -1,3 +1,3 @@
-# Power Outages: Zoning Analysis and Predictive Model in Measuring Customers Affected
+# Power Outages: Zoning Analysis and Predicting Customers Affected
 
 ### Made by Samuel Mahjouri and Zoya Hasan
