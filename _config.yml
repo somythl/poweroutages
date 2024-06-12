@@ -1,6 +1,5 @@
 remote_theme: pages-themes/slate@v0.2.0
-title: Slate theme
-description: Slate is a theme for GitHub Pages.
+title: Power Outages: Zoning Analysis and Predictive Model in Measuring Customers Affected
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-slate
