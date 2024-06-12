@@ -150,7 +150,7 @@ It was important for us to first recognize the distributions of climate categori
 #### Here we analyze the frequency distribution of outages per month 
 The bar graph illusrates a potential predictor for people affected bt power outages, such as month of year, since we notice there is a high frequency of outages in summer months.
 <iframe
-  src="assets/univariate-plot-2.html"
+  src="assets/univariate-plot-3.html"
   width="800"
   height="600"
   frameborder="0"
@@ -203,7 +203,6 @@ The `YEAR`column is likely to be NMAR because the occurrence of an outage in a p
 ## Missingness Dependency 
 
 Looking at the dataset, there are many columns that have missingness that can be assessed, but we focused specifically on the `DEMAND.LOSS.MW`, because we wanted to analyze whether power was supplied efficiently when experiencing an outage. We will test against the missingness using columns `CAUSE.CATEGORY` and `MONTH`. 
-
 ### Cause Category
 Firstly, we evaluated the distribution of `CAUSE.CATEGORY` when `DEMAND.LOSS.MW `is missing vs not missing.
 
@@ -216,14 +215,12 @@ Firstly, we evaluated the distribution of `CAUSE.CATEGORY` when `DEMAND.LOSS.MW 
   height="600"
   frameborder="0"
 ></iframe>
-
 <iframe
   src="assets/cause-dist-chart.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
 We observed a total variation distance (TVD) of 0.179,  with a a p value of 0.0 (alpha 0.01). At this value, we reject the null hypothesis in favor of the alternative, establishing that the distribution of CAUSE.CATEGORY.  CAUSE.CATEGORY  is significantly different when DEMAND.LOSS.MW is or is not missing, indicating that the missingness of DEMAND.LOSS.MW is dependent on CAUSE.CATEGORY.
 
 ### Month
@@ -239,7 +236,6 @@ Secondly, we evaluated the distribution of `MONTH` when `DEMAND.LOSS.MW` is miss
   height="600"
   frameborder="0"
 ></iframe>
-
 <iframe
   src="assets/month-dist-chart.html"
   width="800"
@@ -251,7 +247,7 @@ We analyze an observed Total Variation Distance (TVD) of 0.103, with a p-value o
 
 # Hypothesis Testing 
 
-## We will be testing whether the power outage durations are higher on average for industrial areas over commercial areas, since industrial areas may have higher energy consumption than commercial areas; therefore,  the relevant columns for testing this hypothesis are  OUTAGE.DURATION and COM.SALES, IND.SALES, AND TOTAL.SALES
+#### We will be testing whether the power outage durations are higher on average for industrial areas over commercial areas, since industrial areas may have higher energy consumption than commercial areas; therefore,  the relevant columns for testing this hypothesis are  OUTAGE.DURATION and COM.SALES, IND.SALES, AND TOTAL.SALES
 
 **Null Hypothesis (H₀)**: On average, power outage durations are the same for industrial and commercial areas, they are the same regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.
 
@@ -270,7 +266,7 @@ Although we are only analyzing the mean differences of duration of power outages
 We then performed a permutation test with 10,000 simulations in order to develop an empirical distribution of the test statistic under the null hypothesis. We obtained a p-value of 0.273, with an alpha of 0.05. We failed to reject the null hypothesis, concluding that ** on average, the duration of power outages is the same for industrial and commercial areas, regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.** 
 
 <iframe
-  src="assets/hypothesis-testing-graphing.html"
+  src="assets/hypothesis-testing-graph.html"
   width="800"
   height="600"
   frameborder="0"
