@@ -193,7 +193,7 @@ Similar to what the previous graph showed with Commercial Zones, there is somewh
 ## Grouping and Aggregates 
 
 #### Are there any discoverable relationships in looking at changes in frequency of the cause categories throughout 2000-2016?
-sam why did you choose to do the pivot table this way and what does it show us
+
 
 | CAUSE.CATEGORY                |        2000-2003 |       2005-2008 |        2009-2012 |        2013-2016 |
 |:------------------------------|-----------------:|----------------:|-----------------:|-----------------:|
