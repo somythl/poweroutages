@@ -360,9 +360,9 @@ We used cross-validation (CV) with 5 folds to evaluate the performance of each p
 
 We also chose the RandomForestRegressor for our prediction model because it effectively handles a large number of features, captures non-linear relationships, and provides insights into feature importance, crucial for understanding all of the different factors on predicting the number of customers affected by power outages.
 
-
----table here---
-
+|      |   FT-POPULATION |   FT-POPULATION-UTIL.CONTRI |   FT-POPULATION-UTIL.CONTRI-OHE.ALL |   FT-sqrt.POPULATION-sqrt.UTIL.CONTRI-OHE.ALL |   FT-log.POPULATION-log.UTIL.CONTRI-OHE.ALL |   FT-POPULATION-UTIL.CONTRI-TOTAL.SALES-TOTAL.CUSTOMERS-OHE.ALL |   FT-POPULATION-UTIL.CONTRI-TUKEY.TOTAL.SALES-TUKEY.TOTAL.CUSTOMERS-OHE.ALL |   FT-POPULATION-UTIL.CONTRI-MONTH-OHE.ALL |   FT-POPULATION-UTIL.CONTRI-MONTH-OHE.ALL-TUKEY.TOTAL.SALES-OHE.ALL |   FT-POPULATION-UTIL.CONTRI-MONTH-TOTAL.SALES-OHE.ALL |
+|:-----|----------------:|----------------------------:|------------------------------------:|----------------------------------------------:|--------------------------------------------:|----------------------------------------------------------------:|----------------------------------------------------------------------------:|------------------------------------------:|--------------------------------------------------------------------:|------------------------------------------------------:|
+| Mean |        0.256784 |                    0.255042 |                            0.236443 |                                      0.216766 |                                    0.267457 |                                                        0.471003 |                                                                    0.428279 |                                  0.234871 |                                                            0.294901 |                                               0.33695 |
 
 ## Tuning Hyperparameters 
 We then chose **pipeline 3**, as it tends to have the highest mean R^2. We applied GridSearchCV to find the best hyperparameters for our model to ensure optimal performance in predicting the number of customers affected by power outages. This method systematically explores various hyperparameter combinations to identify the factors that enhance prediction accuracy. 
