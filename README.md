@@ -39,7 +39,7 @@ Our key question is: **What are the key factors that influence the durations of 
 # Data Cleaning and Exploratory Data Analysis 
 
 ### Here we outline the steps taken to clean our dataset so it is effective for analysis 
-1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features.We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`
+1. We  start by dropping missing rows and correctly labeled column titles with their corresponding features. We are only keeping the columns  that we are  working with for analysis. `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.SALES`, `COM.SALES`, `IND.SALES`, `TOTAL.SALES`, `POPULATION`
 
   
 2. Then, we combined the `OUTAGE.START.DATE` and `OUTAGE.START.TIME` columns into a singular `OUTAGE.START` column that utilizes the Timestamp object. We followed the same for `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME`, to get the comprehensive ending time for the outage (when the outage was restored). we then dropped the old columns since all the relevant timing was captured in `OUTAGE.START` and `OUTAGE.RESTORATION`
@@ -298,5 +298,13 @@ Our baseline model employs simple linear regression with two features: `MONTH`, 
 # Final Model 
 
 # Fairness Analysis 
+We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
+**Group X: warm climate**
+**Group Y: cold climate**
+**Null Hypothesis (H₀)** The model is fair. Its R^2 scores for warm and cold climate categories are roughly the same, and any differences are due to random chance.
+**Alternative Hypothesis (H₁()**: The model is unfair. Its R^2 scores for warm and cold climate categories are significantly different.
+We chose R^2 as our evaluation metric because it measures the proportion of variance in the dependent variable (customers affected) that is predictable from the independent variables, providing an indication of the model's explanatory power and overall fit. Our test statistic was the difference in R^2 between the two climate categories.
+
+We performed a permutation test with 10,000 simulations and set our significance level at 0.05. Our p-value was 0.761, meaning we failed to reject the null hypothesis. This result suggests that **our model is fair in predicting the number of customers affected by power outages regardless of whether they occur in warm or cold climate categories.**
 
 # Conclusion 
