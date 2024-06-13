@@ -367,11 +367,14 @@ We also chose the RandomForestRegressor for our prediction model because it effe
 ## Tuning Hyperparameters 
 We then chose **pipeline 3**, as it tends to have the high mean R^2 when ran multiple times, while being a simplier model. We applied GridSearchCV to find the best hyperparameters for our model to ensure optimal performance in predicting the number of customers affected by power outages. This method systematically explores various hyperparameter combinations to identify the factors that enhance prediction accuracy. 
 We noted the best hyperparameters to be:
-
--allalalla-
+  random-forest-regressor__bootstrap: True
+  random-forest-regressor__max_depth': 10
+  random-forest-regressor__min_samples_leaf': 4
+  random-forest-regressor__min_samples_split': 5
+  random-forest-regressor__n_estimators': 200
 
 #### The overall performance of our model changed immensely: from the baseline testing score of .018 to a testing score of 
---ejjajeknf-
+0.379!
 
 # Fairness Analysis 
 #### We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
@@ -401,6 +404,6 @@ We performed a permutation test with 10,000 simulations and set our significance
 ></iframe>
 
 # Conclusion 
-Our analysis aimed to predict the number of customers affected by major power outages using a comprehensive dataset covering outage events in the continental U.S. from 2000 to 2016. By focusing on key features such as climate categories, population, utility contribution, and total sales, we developed and evaluated multiple pipelines to identify the most influential factors and optimal feature transformations. Through extensive data cleaning, feature engineering, and exploratory data analysis, we established a robust model using RandomForestRegressor, which effectively handles a large number of features, manages missing values, and captures non-linear relationships. We employed cross-validation and GridSearchCV to fine-tune hyperparameters, ensuring the model's accuracy and generalizability. Our fairness analysis demonstrated that the model is equitable in predicting the number of customers affected across different climate categories, reinforcing its reliability. Ultimately, our model significantly improved from a baseline R^2 of 0.018 to a higher predictive accuracy of ####, providing valuable insights for energy companies to mitigate future outages and better prepare for major power disruptions.
+Our analysis aimed to predict the number of customers affected by major power outages using a comprehensive dataset covering outage events in the continental U.S. from 2000 to 2016. By focusing on key features such as climate categories, population, utility contribution, and total sales, we developed and evaluated multiple pipelines to identify the most influential factors and optimal feature transformations. Through extensive data cleaning, feature engineering, and exploratory data analysis, we established a robust model using RandomForestRegressor, which effectively handles a large number of features, manages missing values, and captures non-linear relationships. We employed cross-validation and GridSearchCV to fine-tune hyperparameters, ensuring the model's accuracy and generalizability. Our fairness analysis demonstrated that the model is equitable in predicting the number of customers affected across different climate categories, reinforcing its reliability. Ultimately, our model significantly improved from a baseline R^2 of 0.018 to a higher predictive accuracy of 0.379 providing valuable insights for energy companies to mitigate future outages and better prepare for major power disruptions.
 
 
