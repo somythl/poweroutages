@@ -182,7 +182,7 @@ As the data points stray above the x-axis, it seems there is a soft positive tre
 
 #### Any Possible Correlations between Megawatts/Hour in Industrial Zones and Outage Duration? 
 <iframe
-  src="assets/bivariate-plot-3-sam.html"
+  src="assets/bivariate-plot-10-sam.html"
   width="800"
   height="600"
   frameborder="0"
