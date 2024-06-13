@@ -223,7 +223,7 @@ Firstly, we evaluated the distribution of `CAUSE.CATEGORY` when `DEMAND.LOSS.MW 
 
 **Alternative Hypothesis**: The distribution of CAUSE.CATEGORY is different when DEMAND.LOSS.MW is missing vs not missing.
 <iframe
-  src="assets/cause-bar-plot.html"
+  src="assets/cause-chart-sam.html"
   width="800"
   height="600"
   frameborder="0"
