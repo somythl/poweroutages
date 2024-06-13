@@ -319,7 +319,7 @@ After feature engineering, we performed Tukey’s data analysis to find the best
   height="600"
   frameborder="0"
 ></iframe>
-Since the population data somehwat follows the second quadrant of Tukey's diagram, we will choose to apply a log or sqrt.root transformation. 
+Since the population data somewhat follows the second quadrant of Tukey's diagram, we will choose to apply a log or sqrt.root transformation. 
 <iframe
   src="assets/tukey-2.html"
   width="800"
