@@ -190,7 +190,7 @@ As the data points stray above the x-axis, it seems there is a soft positive tre
 Similar to what the previous graph showed with Commercial Zones, there is somewhat of a relationship between Industrial Zone Megawatt Usage and the Duration of Power Outages.
 
 
-#### Grouping and Aggregates 
+## Grouping and Aggregates 
 
 #### Are there any discoverable relationships in looking at changes in frequency of the cause categories throughout 2000-2016?
 sam why did you choose to do the pivot table this way and what does it show us
@@ -368,9 +368,13 @@ We also chose the RandomForestRegressor for our prediction model because it effe
 We then chose **pipeline 3**, as it tends to have the high mean R^2 when ran multiple times, while being a simplier model. We applied GridSearchCV to find the best hyperparameters for our model to ensure optimal performance in predicting the number of customers affected by power outages. This method systematically explores various hyperparameter combinations to identify the factors that enhance prediction accuracy. 
 We noted the best hyperparameters to be:
   random-forest-regressor__bootstrap: True
+  
   random-forest-regressor__max_depth': 10
+  
   random-forest-regressor__min_samples_leaf': 4
+  
   random-forest-regressor__min_samples_split': 5
+  
   random-forest-regressor__n_estimators': 200
 
 #### The overall performance of our model changed immensely: from the baseline testing score of .018 to a testing score of 
