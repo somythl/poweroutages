@@ -211,7 +211,7 @@ sam why did you choose to do the pivot table this way and what does it show us
 
 ## NMAR Analysis 
 
-The `YEAR`column is likely to be NMAR because the occurrence of an outage in a particular year is typically independent of other features within the dataset. Each outage event should have an associated year, and the missingness of a `YEAR` value would generally not be influenced by the outage's characteristics, but rather the way the data was reported and collected, such as certain companies not reporting data into a source. Therefore, the missingness in the `YEAR`n column would typically depend on the value of the data itself. Additional data that we could collect to determine if the missingness is MAR is collecting information on the documentation practices of power outages over the years, including any regulatory changes in reporting requirements or practices that might have occurred. With this, we could analyze if there is an association between a change in reporting practices, with the missingness of the year values, making it MAR.
+The `YEAR`column is likely to be NMAR because the occurrence of an outage in a particular year is typically independent of other features within the dataset. Each outage event should have an associated year, and the missingness of a `YEAR` value would generally not be influenced by the outage's characteristics, but rather the way the data was reported and collected, such as certain companies not reporting data into a source. Therefore, the missingness in the `YEAR` column would typically depend on the value of the data itself. Additional data that we could collect to determine if the missingness is MAR is collecting information on the documentation practices of power outages over the years, including any regulatory changes in reporting requirements or practices that might have occurred. With this, we could analyze if there is an association between a change in reporting practices, with the missingness of the year values, making it MAR.
 
 ## Missingness Dependency 
 
@@ -219,9 +219,9 @@ Looking at the dataset, there are many columns that have missingness that can be
 ### Cause Category
 Firstly, we evaluated the distribution of `CAUSE.CATEGORY` when `DEMAND.LOSS.MW `is missing vs not missing.
 
-**Null Hypothesis**: The distribution of CAUSE.CATEGORY is the same when DEAMND.LOSS.MW is missing vs not missing.
+**Null Hypothesis**: The distribution of `CAUSE.CATEGORY` is the same when `DEMAND.LOSS.MW` is missing vs not missing.
 
-**Alternative Hypothesis**: The distribution of CAUSE.CATEGORY is different when DEMAND.LOSS.MW is missing vs not missing.
+**Alternative Hypothesis**: The distribution of `CAUSE.CATEGORY` is different when `DEMAND.LOSS.MW` is missing vs not missing.
 <iframe
   src="assets/cause-chart-sam.html"
   width="800"
@@ -234,7 +234,7 @@ Firstly, we evaluated the distribution of `CAUSE.CATEGORY` when `DEMAND.LOSS.MW 
   height="600"
   frameborder="0"
 ></iframe>
-We observed a total variation distance (TVD) of 0.179,  with a a p value of 0.0 (alpha 0.01). At this value, we reject the null hypothesis in favor of the alternative, establishing that the distribution of CAUSE.CATEGORY.  CAUSE.CATEGORY  is significantly different when DEMAND.LOSS.MW is or is not missing, indicating that the missingness of DEMAND.LOSS.MW is dependent on CAUSE.CATEGORY.
+We observed a total variation distance (TVD) of 0.179,  with a a p value of 0.0 (alpha 0.01). At this value, we reject the null hypothesis in favor of the alternative, establishing that the distribution of `CAUSE.CATEGORY`.  `CAUSE.CATEGORY` is significantly different when `DEMAND.LOSS.MW` is or is not missing, indicating that the missingness of DEMAND.LOSS.MW is dependent on `CAUSE.CATEGORY`.
 
 ### Month
 Secondly, we evaluated the distribution of `MONTH` when `DEMAND.LOSS.MW` is missing vs not missing.
@@ -260,11 +260,11 @@ We analyze an observed Total Variation Distance (TVD) of 0.103, with a p-value o
 
 # Hypothesis Testing 
 
-#### We will be testing whether the power outage durations are higher on average for industrial areas over commercial areas, since industrial areas may have higher energy consumption than commercial areas; therefore,  the relevant columns for testing this hypothesis are  OUTAGE.DURATION and COM.SALES, IND.SALES, AND TOTAL.SALES
+#### We will be testing whether the power outage durations are higher on average for industrial areas over commercial areas, since industrial areas may have higher energy consumption than commercial areas; therefore,  the relevant columns for testing this hypothesis are  `OUTAGE.DURATION` and `COM.SALES`, `IND.SALES`, AND `TOTAL.SALES`
 
 **Null Hypothesis (H₀)**: On average, power outage durations are the same for industrial and commercial areas, they are the same regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.
 
-**Alternative Hypothesis (H₁()**: On average, power outage durations are higher for industrial areas than commercial areas because industrial energy consumption is higher than commercial energy consumption.
+**Alternative Hypothesis (H₁)**: On average, power outage durations are higher for industrial areas than commercial areas because industrial energy consumption is higher than commercial energy consumption.
 
 **Test Statistic**: Difference in means. 
 The mean power outage duration for a commercial area- mean power outage duration of an industrial area.
