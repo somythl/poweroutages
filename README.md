@@ -31,8 +31,8 @@ Our key question is: **What are the key factors that influence the durations of 
 | `IND.SALES`| Electricity consumption in the industrial sector (megawatt-hour)|
 | `TOTAL.SALES`| Total electricity consumption in the U.S. state (megawatt-hour)|
 | `UTIL.CONTRI`| % of Utility industry׳s contribution to the total GSP in the State|
-| `NERC.REGION`| North American Electric Reliability Corporation (NERC) regions involved in the outage event|
-| `CAUSE.CATEGORY`| Event causing the power outage|
+| `CAUSE.REGION`| U.S. Continental Region|
+| `CAUSE.CATEGORY`| Cause of Power Outage|
 
 
 
@@ -290,7 +290,7 @@ Our model will try to **predict the number of customers affected by a major powe
 
 The response variable we are predicting is `CUSTOMERS.AFFECTED`, we chose this because this column captures the number of customers in total that are affected by a certain outage. The metric we are using to evaluate our model is R^2, we chose this metric because it is a simplistic, yet efficient way to measure goodness of fit of our model and how well the model's predictions match the actual data. We chose this metric over other metrics because R^2 can be especially helpful in model selection and validation, as well as be used for easy comparison with a baseline model to see how much improvement a more complex model provides.
 
-At the time of prediction, we would know the features: `MONTH`, `YEAR` `TOTAL.CUSTOMERS`, `OUTAGE.START`, `U.S._STATE`, `POPULATION`, `CLIMATE.CATEGORY`, `CAUSE.CATEGORY’, ‘NERC.REGION`, `UTIL.CONTRI`, `TOTAL.SALES`. Understanding these features information will aid us in predicting the number of customers affected by a major power outage.  
+At the time of prediction, we would know the features: `MONTH`, `YEAR` `TOTAL.CUSTOMERS`, `OUTAGE.START`, `CLIMATE.CATEGORY`, `POPULATION`, `CAUSE.CATEGORY`, `UTIL.CONTRI`, `TOTAL.SALES`. Understanding these features information will aid us in predicting the number of customers affected by a major power outage.  
 
 # Baseline Model 
 Our baseline model employs simple linear regression with two features: `MONTH`, an ordinal categorical column, and `TOTAL.CUSTOMERS`, a numerical column. We selected `MONTH` to capture potential seasonal patterns affecting power outages and `TOTAL.CUSTOMERS` to account for the scale of the customer base impacted by outages. No encoding or transformations were applied, as our goal was to establish a baseline performance using raw data. The model achieved an R^2 value of 0.018 on the test set, meaning that only 1% of the variance in the number of customers affected is explained by these features. This low R^2 suggests that while `MONTH` and `TOTAL.CUSTOMERS` provide some insight, they are insufficient alone to predict the number of affected customers accurately, pointing to the need for more features and advanced modeling techniques to enhance predictive performance.
@@ -370,7 +370,8 @@ We noted the best hyperparameters to be:
 
 -allalalla-
 
-#### The overall performance of our model changed immensely: from the baseline testing score of.018 to the testing score of --ejjajeknf-
+#### The overall performance of our model changed immensely: from the baseline testing score of.018 to the testing score of 
+--ejjajeknf-
 
 # Fairness Analysis 
 #### We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
@@ -393,7 +394,7 @@ We chose R^2 as our evaluation metric because it measures the proportion of vari
 We performed a permutation test with 10,000 simulations and set our significance level at 0.05. Our p-value was 0.761, meaning we failed to reject the null hypothesis. This result suggests that **our model is fair in predicting the number of customers affected by power outages regardless of whether they occur in warm or cold climate categories.**
 
 <iframe
-  src="assets/fairness-plot-2.html"
+  src="assets/fairness-analysis-plot-2.html"
   width="800"
   height="600"
   frameborder="0"
