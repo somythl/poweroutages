@@ -314,12 +314,19 @@ We then feature engineered the `OUTAGE.START` column into three separate columns
 ## Tukey’s Data Analysis 
 After feature engineering, we performed Tukey’s data analysis to find the best transformer for the features `UTIL.CONTRI` AND `POPULATION`. We did this to identify and manage outliers that could distort the model's predictions, since these features had high outliers as we analyzed. Tukey’s process helped in ensuring that these features were free from extreme values, which could possibly skew the results. Additionally, by detecting these outliers, we aimed to find the best transformation for each feature to improve the accuracy of the predictive model, ensuring it better represents typical conditions and relationships within the data.
 <iframe
-  src="assets/tukey-analysis.html"
+  src="assets/tukey-1.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
+Since the population data somehwat follows the second quadrant of Tukey's diagram, we will choose to apply a log or sqrt.root transformation. 
+<iframe
+  src="assets/tukey-2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+Since the utility contribution data somehwat follows the second quadrant of Tukey's diagram, we will choose to apply a log or sqrt.root transformation. 
 ## Model Creation 
 After understanding our features, feature engineering, and possible transformations through analysis, it was time to create a pipeline that accurately captured the features to answer our prediction question. We decided to use multiple pipelines to explore different combinations and transformations of features and evaluate their performance.This approach allows us to evaluate the impact of each feature and transformation on our model’s performance. Here are the pipelines we created:
 
