@@ -394,7 +394,7 @@ We chose R^2 as our evaluation metric because it measures the proportion of vari
 We performed a permutation test with 10,000 simulations and set our significance level at 0.05. Our p-value was 0.761, meaning we failed to reject the null hypothesis. This result suggests that **our model is fair in predicting the number of customers affected by power outages regardless of whether they occur in warm or cold climate categories.**
 
 <iframe
-  src="assets/fairness-analysis-plot-2.html"
+  src="assets/fairness-analysis-plot-2-.html"
   width="800"
   height="600"
   frameborder="0"
