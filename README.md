@@ -296,9 +296,83 @@ At the time of prediction, we would know the features: `MONTH`, `YEAR` `TOTAL.CU
 Our baseline model employs simple linear regression with two features: `MONTH`, an ordinal categorical column, and `TOTAL.CUSTOMERS`, a numerical column. We selected `MONTH` to capture potential seasonal patterns affecting power outages and `TOTAL.CUSTOMERS` to account for the scale of the customer base impacted by outages. No encoding or transformations were applied, as our goal was to establish a baseline performance using raw data. The model achieved an R^2 value of 0.018 on the test set, meaning that only 1% of the variance in the number of customers affected is explained by these features. This low R^2 suggests that while `MONTH` and `TOTAL.CUSTOMERS` provide some insight, they are insufficient alone to predict the number of affected customers accurately, pointing to the need for more features and advanced modeling techniques to enhance predictive performance.
 
 # Final Model 
+## Feature Selection 
+Our final model was developed using a comprehensive understanding of the various features in our dataset. We chose to select multiple variables for prediction as categorized below: 
+
+**Temporal features**: `OUTAGE.START`, `MONTH`, and `YEAR` capture crucial time-related patterns, including peak usage periods and seasonal trends that can influence outage impacts. 
+
+**Environmental features**: `CLIMATE.REGION` and `CLIMATE.CATEGORY` account for environmental conditions, recognizing that different climate conditions can affect electricity demand and outage severity. 
+
+**Demographic and Economic features**: `POPULATION`, `UTIL.CONTRI`, `TOTAL.SALES`, and `TOTAL.CUSTOMERS` reflect the scale of electricity consumption and the potential customer base affected by outages. 
+
+Additionally, the `CAUSE.CATEGORY` feature distinguishes between different outage causes, acknowledging that widespread weather-induced outages might impact more customers than localized equipment failures. 
+
+## Feature Engineering
+We then feature engineered the `OUTAGE.START` column into three separate columns, 
+`OUTAGE.START.DAY`, `OUTAGE.START.HOUR`, `OUTAGE.WEEKEND`, to represent the exact datetime day of month, datetime hour, and if the outage occurred on a weekend or not. We believed that including these features in our model would better optimize our prediction since we could obtain more granular details about the time of outage, from the `OUTAGE.START` column. 
+
+## Tukey’s Data Analysis 
+After feature engineering, we performed Tukey’s data analysis to find the best transformer for the features `TOTAL.SALES` AND `POPULATION`. We did this to identify and manage outliers that could distort the model's predictions, since these features had high outliers as we analyzed. Tukey’s process helped in ensuring that these features were free from extreme values, which could possibly skew the results. Additionally, by detecting these outliers, we aimed to find the best transformation for each feature to improve the accuracy of the predictive model, ensuring it better represents typical conditions and relationships within the data.
+<iframe
+  src="assets/tukey-analysis.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+## Model Creation 
+After understanding our features, feature engineering, and possible transformations through analysis, it was time to create a pipeline that accurately captured the features to answer our prediction question. We decided to use multiple pipelines to explore different combinations and transformations of features and evaluate their performance.This approach allows us to evaluate the impact of each feature and transformation on our model’s performance. Here are the pipelines we created:
+
+**Pipeline 1: POPULATION**
+Description: Uses the population feature without any transformation.
+Purpose: To assess the impact of population alone on the prediction.
+
+** Pipeline 2: POPULATION, UTIL.CONTRI**
+Description: Uses the population and utility contribution features without transformation.
+Purpose: To evaluate the combined effect of population and utility contribution on the prediction.
+
+**Pipeline3: POPULATION (square root), UTIL.CONTRI (square root), OHE categorical columns**
+Description: Applies square root transformation to population, and square root transformation to utility contribution, and one-hot encodes categorical variables.
+Purpose: To see the effect of scaling and encoding categorical variables on the model.
+
+**Pipeline 4: POPULATION (log), UTIL.CONTRI(log), OHE categorical columns**
+Description: Applies log transformation to population, and log transformation to utility contribution, and one-hot encodes categorical variables.
+Purpose: To see the effect of scaling and encoding categorical variables on the model.
+
+**Pipeline 5: POPULATION, UTIL.CONTRI, OHE**
+Description: Uses population and utility contribution features, along with one-hot encoded categorical variables.
+Purpose: To assess the impact of including categorical variables without scaling.
+
+**Pipeline 6: POPULATION, UTIL.CONTRI, TOTAL.SALES, TOTAL.CUSTOMERS, OHE categorical columns** 
+Description: Uses population, utility contribution, total sales, total customers, and one-hot encoded categorical variables.
+Purpose: To evaluate the combined effect of multiple numerical and categorical features.
+
+**Pipeline 7: POPULATION, UTIL.CONTRI, TUKEY.TOTAL.SALES, TUKEY.TOTAL.CUSTOMERS, OHE categorical columns**
+Description: Uses population and utility contribution features, applies Tukey’s transformation to total sales and total customers, and one-hot encodes categorical variables.
+Purpose: To determine the impact of transforming highly skewed features on the model.
+
+** Pipeline 8: POPULATION, UTIL.CONTRI, MONTH, OHE, TUKEY.TOTAL.SALES** 
+Description: Uses population, utility contribution, and month features, applies Tukey’s transformation to total sales, and one-hot encodes categorical variables.
+Purpose: To combine temporal, transformed, and categorical features.
+
+### Cross-Validation
+We used cross-validation (CV) with 5 folds to evaluate the performance of each pipeline. Cross-validation helps in assessing the model's ability to generalize to an independent dataset, ensuring that our evaluation is robust and not biased by the specific data split.
+### RandomForestRegressor 
+
+We also chose the RandomForestRegressor for our prediction model because it effectively handles a large number of features, captures non-linear relationships, and provides insights into feature importance, crucial for understanding all of the different factors on predicting the number of customers affected by power outages.
+
+
+---table here---
+
+
+## Tuning Hyperparameters 
+We then chose **pipeline 3**, as it tends to have the highest mean R^2. We applied GridSearchCV to find the best hyperparameters for our model to ensure optimal performance in predicting the number of customers affected by power outages. This method systematically explores various hyperparameter combinations to identify the factors that enhance prediction accuracy. 
+We noted the best hyperparameters to be:
+
+-allalalla-
+
+#### The overall performance of our model changed immensely: from the baseline testing score of.018 to the testing score of --ejjajeknf-
 
 # Fairness Analysis 
-
 #### We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
 
 **Group X: warm climate**
@@ -326,3 +400,4 @@ We performed a permutation test with 10,000 simulations and set our significance
 ></iframe>
 
 # Conclusion 
+
