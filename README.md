@@ -276,7 +276,7 @@ Although we are only analyzing the mean differences of duration of power outages
 3. Since the commercial and industrial sectors had very similar energy consumptions, their differences in outage duration were also close together. We classified a threshold (the median of the distribution of differences) to decide whether that outage was COM or IND. The median we used for threshold was 8.08 
 4. Calculated observed differences and performed permutation testing.
 
-We then performed a permutation test with 10,000 simulations in order to develop an empirical distribution of the test statistic under the null hypothesis. We obtained a p-value of 0.273, with an alpha of 0.05. We failed to reject the null hypothesis, concluding that ** on average, the duration of power outages is the same for industrial and commercial areas, regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.** 
+We then performed a permutation test with 10,000 simulations in order to develop an empirical distribution of the test statistic under the null hypothesis. We obtained a p-value of 0.273, with an alpha of 0.05. We failed to reject the null hypothesis, concluding that **on average, the duration of power outages is the same for industrial and commercial areas, regardless of whether industrial energy consumption is higher or lower than commercial energy consumption.** 
 
 <iframe
   src="assets/hypothesis-testing-graph.html"
@@ -299,13 +299,13 @@ Our baseline model employs simple linear regression with two features: `MONTH`, 
 ## Feature Selection 
 Our final model was developed using a comprehensive understanding of the various features in our dataset. We chose to select multiple variables for prediction as categorized below: 
 
-**Temporal features**: `OUTAGE.START`, `MONTH`, and `YEAR` capture crucial time-related patterns, including peak usage periods and seasonal trends that can influence outage impacts. 
+**Temporal features**: `OUTAGE.START` (ORDINAL), `MONTH` (ORDINAL), and `YEAR` (ORDINAL) capture crucial time-related patterns, including peak usage periods and seasonal trends that can influence outage impacts. 
 
-**Environmental features**: `CLIMATE.REGION` and `CLIMATE.CATEGORY` account for environmental conditions, recognizing that different climate conditions can affect electricity demand and outage severity. 
+**Environmental features**: `CLIMATE.REGION` (NOMINAL) and `CLIMATE.CATEGORY` (NOMINAL) account for environmental conditions, recognizing that different climate conditions can affect electricity demand and outage severity. 
 
-**Demographic and Economic features**: `POPULATION`, `UTIL.CONTRI`, `TOTAL.SALES`, and `TOTAL.CUSTOMERS` reflect the scale of electricity consumption and the potential customer base affected by outages. 
+**Demographic and Economic features**: `POPULATION` (NUMERICAL), `UTIL.CONTRI` (NUMERICAL), `TOTAL.SALES` (NUMERICAL), and `TOTAL.CUSTOMERS` (NUMERICAL), reflect the scale of electricity consumption and the potential customer base affected by outages. 
 
-Additionally, the `CAUSE.CATEGORY` feature distinguishes between different outage causes, acknowledging that widespread weather-induced outages might impact more customers than localized equipment failures. 
+Additionally, the `CAUSE.CATEGORY` (NOMINAL) feature distinguishes between different outage causes, acknowledging that widespread weather-induced outages might impact more customers than localized equipment failures. 
 
 ## Feature Engineering
 We then feature engineered the `OUTAGE.START` column into three separate columns, 
