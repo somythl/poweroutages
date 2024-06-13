@@ -319,6 +319,7 @@ After feature engineering, we performed Tukey’s data analysis to find the best
   height="600"
   frameborder="0"
 ></iframe>
+
 ## Model Creation 
 After understanding our features, feature engineering, and possible transformations through analysis, it was time to create a pipeline that accurately captured the features to answer our prediction question. We decided to use multiple pipelines to explore different combinations and transformations of features and evaluate their performance.This approach allows us to evaluate the impact of each feature and transformation on our model’s performance. Here are the pipelines we created:
 
