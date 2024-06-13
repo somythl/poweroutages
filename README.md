@@ -298,10 +298,14 @@ Our baseline model employs simple linear regression with two features: `MONTH`, 
 # Final Model 
 
 # Fairness Analysis 
-We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
+
+#### We decided to assess whether or not our model was fair in predicting customers affected by a power outage relative to their climate category. We chose the following groups because the climate can significantly impact power outage occurrences and their severity:
+
 **Group X: warm climate**
+
 **Group Y: cold climate**
 **Null Hypothesis (H₀)** The model is fair. Its R^2 scores for warm and cold climate categories are roughly the same, and any differences are due to random chance.
+
 **Alternative Hypothesis (H₁()**: The model is unfair. Its R^2 scores for warm and cold climate categories are significantly different.
 We chose R^2 as our evaluation metric because it measures the proportion of variance in the dependent variable (customers affected) that is predictable from the independent variables, providing an indication of the model's explanatory power and overall fit. Our test statistic was the difference in R^2 between the two climate categories.
 
