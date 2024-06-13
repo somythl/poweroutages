@@ -326,7 +326,7 @@ After understanding our features, feature engineering, and possible transformati
 Description: Uses the population feature without any transformation.
 Purpose: To assess the impact of population alone on the prediction.
 
-** Pipeline 2: POPULATION, UTIL.CONTRI**
+**Pipeline 2: POPULATION, UTIL.CONTRI**
 Description: Uses the population and utility contribution features without transformation.
 Purpose: To evaluate the combined effect of population and utility contribution on the prediction.
 
@@ -350,7 +350,7 @@ Purpose: To evaluate the combined effect of multiple numerical and categorical f
 Description: Uses population and utility contribution features, applies Tukey’s transformation to total sales and total customers, and one-hot encodes categorical variables.
 Purpose: To determine the impact of transforming highly skewed features on the model.
 
-** Pipeline 8: POPULATION, UTIL.CONTRI, MONTH, OHE, TUKEY.TOTAL.SALES** 
+**Pipeline 8: POPULATION, UTIL.CONTRI, MONTH, OHE, TUKEY.TOTAL.SALES** 
 Description: Uses population, utility contribution, and month features, applies Tukey’s transformation to total sales, and one-hot encodes categorical variables.
 Purpose: To combine temporal, transformed, and categorical features.
 
@@ -388,7 +388,7 @@ We noted the best hyperparameters to be:
 
 **Null Hypothesis (H₀)** The model is fair. Its R^2 scores for warm and cold climate categories are roughly the same, and any differences are due to random chance.
 
-**Alternative Hypothesis (H₁()**: The model is unfair. Its R^2 scores for warm and cold climate categories are significantly different.
+**Alternative Hypothesis (H₁)**: The model is unfair. Its R^2 scores for warm and cold climate categories are significantly different.
 We chose R^2 as our evaluation metric because it measures the proportion of variance in the dependent variable (customers affected) that is predictable from the independent variables, providing an indication of the model's explanatory power and overall fit. Our test statistic was the difference in R^2 between the two climate categories.
 
 We performed a permutation test with 10,000 simulations and set our significance level at 0.05. Our p-value was 0.761, meaning we failed to reject the null hypothesis. This result suggests that **our model is fair in predicting the number of customers affected by power outages regardless of whether they occur in warm or cold climate categories.**
@@ -401,4 +401,6 @@ We performed a permutation test with 10,000 simulations and set our significance
 ></iframe>
 
 # Conclusion 
+Our analysis aimed to predict the number of customers affected by major power outages using a comprehensive dataset covering outage events in the continental U.S. from 2000 to 2016. By focusing on key features such as climate categories, population, utility contribution, and total sales, we developed and evaluated multiple pipelines to identify the most influential factors and optimal feature transformations. Through extensive data cleaning, feature engineering, and exploratory data analysis, we established a robust model using RandomForestRegressor, which effectively handles a large number of features, manages missing values, and captures non-linear relationships. We employed cross-validation and GridSearchCV to fine-tune hyperparameters, ensuring the model's accuracy and generalizability. Our fairness analysis demonstrated that the model is equitable in predicting the number of customers affected across different climate categories, reinforcing its reliability. Ultimately, our model significantly improved from a baseline R^2 of 0.018 to a higher predictive accuracy of ####, providing valuable insights for energy companies to mitigate future outages and better prepare for major power disruptions.
+
 
