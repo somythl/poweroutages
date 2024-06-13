@@ -304,11 +304,25 @@ Our baseline model employs simple linear regression with two features: `MONTH`, 
 **Group X: warm climate**
 
 **Group Y: cold climate**
+<iframe
+  src="assets/fairness-plot-1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 **Null Hypothesis (H₀)** The model is fair. Its R^2 scores for warm and cold climate categories are roughly the same, and any differences are due to random chance.
 
 **Alternative Hypothesis (H₁()**: The model is unfair. Its R^2 scores for warm and cold climate categories are significantly different.
 We chose R^2 as our evaluation metric because it measures the proportion of variance in the dependent variable (customers affected) that is predictable from the independent variables, providing an indication of the model's explanatory power and overall fit. Our test statistic was the difference in R^2 between the two climate categories.
 
 We performed a permutation test with 10,000 simulations and set our significance level at 0.05. Our p-value was 0.761, meaning we failed to reject the null hypothesis. This result suggests that **our model is fair in predicting the number of customers affected by power outages regardless of whether they occur in warm or cold climate categories.**
+
+<iframe
+  src="assets/fairness-plot-2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 # Conclusion 
