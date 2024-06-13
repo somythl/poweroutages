@@ -173,7 +173,7 @@ The bar graph illusrates a potential predictor for people affected bt power outa
 
 #### Any Possible Correlations between Megawatts/Hour in Commercial Zones and Outage Duration? 
 <iframe
-  src="assets/bivariate-plot-1.html"
+  src="assets/bivariate-plot-2.html"
   width="800"
   height="600"
   frameborder="0"
@@ -182,7 +182,7 @@ As the data points stray above the x-axis, it seems there is a soft positive tre
 
 #### Any Possible Correlations between Megawatts/Hour in Industrial Zones and Outage Duration? 
 <iframe
-  src="assets/bivariate-plot-2.html"
+  src="assets/bivariate-plot-.html"
   width="800"
   height="600"
   frameborder="0"
