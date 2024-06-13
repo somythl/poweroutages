@@ -370,7 +370,7 @@ We noted the best hyperparameters to be:
 
 -allalalla-
 
-#### The overall performance of our model changed immensely: from the baseline testing score of.018 to the testing score of 
+#### The overall performance of our model changed immensely: from the baseline testing score of .018 to a testing score of 
 --ejjajeknf-
 
 # Fairness Analysis 
